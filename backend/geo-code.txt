@@ -1,0 +1,9 @@
+import pgeocode
+
+# Specify the country code (e.g., 'IN' for India, 'US' for the USA)
+nomi = pgeocode.Nominatim('IN')
+
+# Query based on postal code (e.g., '110001')
+location = nomi.query_postal_code('361142')
+
+print(location)

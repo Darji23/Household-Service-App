@@ -1,0 +1,16 @@
+# 1.Query to get the names of the tables
+c.execute("SELECT name FROM sqlite_master WHERE type='table';")
+tables = c.fetchall()
+print("Tables in the database:")
+for table in tables:
+    print(table[0])
+
+# 2.Execute PRAGMA to get the table structure
+c.execute("PRAGMA table_info(service);")
+columns = c.fetchall()
+print("Schema of table:")
+for column in columns:
+    print(f"Column ID: {column[0]}, Name: {column[1]}, Type: {column[2]}, Not Null: {column[3]}, Default Value: {column[4]}, Primary Key: {column[5]}")
+
+
+#c.execute('''insert into service values('SERVICE1005','Carpenter',1800,'1.5 Hour','Carpenter is all about making and repairing wooden furniture')''')
